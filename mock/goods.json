@@ -1,0 +1,30 @@
+{
+	"status":"0",
+	"msg":"",
+	"result":[
+      {
+        "productId":"100001",
+        "productName":"xiaomi1",
+        "productPrice":"111",
+        "productImg":"1.jpg"
+      },
+      {
+        "productId":"100001",
+        "productName":"xiaomi2",
+        "productPrice":"222",
+        "productImg":"2.jpg"
+      },
+      {
+        "productId":"100001",
+        "productName":"xiaomi3",
+        "productPrice":"333",
+        "productImg":"3.jpg"
+      },
+      {
+        "productId":"100001",
+        "productName":"xiaomi4",
+        "productPrice":"444",
+        "productImg":"4.jpg"
+      }
+	]
+}
