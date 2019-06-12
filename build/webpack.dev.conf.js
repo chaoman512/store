@@ -10,16 +10,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+const express=require("express")
+const app=express()
+var goodsData=require("./../mock/goods.json")
+var router=express.Router()
+app.use(router)
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
-const app = express()
-const router = express.Router()
-const goodsData = require("../mock/goods.json")
-router.get("/goods",function(req,res,next){
-   res.json(goodsData)
-})
-app.use(router)
 
 
 const devWebpackConfig = merge(baseWebpackConfig, {
@@ -31,6 +29,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
+    before(app){
+      app.get('/goods',(req,res)=>{
+        res.json({
+          errno:0,
+          data:goodsData
+        })
+      })
+    },
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
